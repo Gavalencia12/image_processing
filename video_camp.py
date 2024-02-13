@@ -1,8 +1,22 @@
 import cv2
 import numpy as np
-cap = cv2.VIdeoCaptura(0)
+
+cap = cv2.VideoCapture(0)
 if not (cap.isOpened()):
     print("Error al leer la camara!!!!")
 frame_width = int(cap.get(3))
 frame_height = int(cap.get(4))
-out =cv2.VideoWriter('salida.avi',cv2.VIdeoWriter_fource('M','J','P','G'),10(frame_width,frame_height))
+out =cv2.VideoWriter('img/videos/exit.avi',cv2.VideoWriter_fourcc('M','J','P','G'),24, (frame_width,frame_height))
+while(True):
+    ret,frame = cap.read()
+    if ret == True:
+        out.write(frame)
+        cv2.imshow('Cube',frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    else:
+        break
+
+cap.release()
+out.release()
+cv2.destroyAllWindows()
