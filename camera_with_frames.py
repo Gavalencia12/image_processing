@@ -8,8 +8,8 @@ ventanas = []
 
 
 for i in range(num):
-    ventana_= f'Video {i}'
-    ventanas.append(ventana_)
+    _ventana= f'Video {i}'
+    ventanas.append(_ventana)
 
 while(cap.isOpened()):
     ret, frame = cap.read()
