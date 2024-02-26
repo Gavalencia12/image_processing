@@ -16,6 +16,9 @@ while(cap.isOpened()):
     if ret:
       # video = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
       video = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+      video = cv2.GaussianBlur(frame, (3,3), 0)
+      video = cv2.Canny (image = frame, threshold1=100,threshold2=100)
+      
       # video = cv2.cvtColor(frame, cv2.COLOR_BGR2YUV)
       # video = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
       # video = cv2.resize(video, (0, 0), fx=0.5, fy=0.5)

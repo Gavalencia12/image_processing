@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture('img/race_car.mp4')
+cap = cv2.VideoCapture('img/videos/race_car.mp4')
 if not (cap.isOpened()):
     print("Error al abrir el archivo de video")
 while(cap.isOpened()):
