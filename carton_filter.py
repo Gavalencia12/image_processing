@@ -34,7 +34,7 @@ while(True):
     if ret == True:
         out.write(frame)
         frame_out = cartoonize_image(frame, ds_factor=2, sketch_mode=False) #True o False
-        cv2.imshow('Video de caricatura', frame_out)
+        cv2.imshow('Video carton', frame_out)
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q') or key == ord('Q') or key == ord('x') or key == ord('X') or key == 27 or key == 13:
             break
