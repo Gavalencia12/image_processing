@@ -1,4 +1,3 @@
-
 import cv2
 import numpy as np
 
@@ -27,13 +26,15 @@ if not (cap.isOpened()):
     print("¡ERROR AL LEER LA CÁMARA!")
 frame_width = int(cap.get(3))
 frame_height = int(cap.get(4))
-out = cv2.VideoWriter('img/videos/video.avi', cv2.VideoWriter_fourcc('M','J','P','G'),100,(frame_width, frame_height))
+#out = cv2.VideoWriter('img/videos/video.avi', cv2.VideoWriter_fourcc('M','J','P','G'),la velocidad de reproducion del video 20,(frame_width, frame_height))
+out = cv2.VideoWriter('img/videos/video.avi', cv2.VideoWriter_fourcc('M','J','P','G'),20,(frame_width, frame_height))
 
 while(True):
     ret, frame = cap.read()
     if ret == True:
         out.write(frame)
         frame_out = cartoonize_image(frame, ds_factor=2, sketch_mode=False) #True o False
+        out.write(frame_out)
         cv2.imshow('Video carton', frame_out)
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q') or key == ord('Q') or key == ord('x') or key == ord('X') or key == 27 or key == 13:
